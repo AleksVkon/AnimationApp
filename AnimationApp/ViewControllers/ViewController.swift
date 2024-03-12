@@ -6,14 +6,23 @@
 //
 
 import UIKit
+import SpringAnimation
 
-class ViewController: UIViewController {
-
+final class ViewController: UIViewController {
+    @IBOutlet var animationView: SpringView!
+    @IBOutlet var runButton: SpringButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        animationView.layer.cornerRadius = 10
+        runButton.layer.cornerRadius = 10
     }
 
-
+    @IBAction func StartAnimation() {
+        let currentAnimation = Animations.getAnimation()
+        animationView.animation = currentAnimation.animationName
+    }
+    
+    
 }
 
